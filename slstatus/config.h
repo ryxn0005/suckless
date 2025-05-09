@@ -75,6 +75,5 @@ static const struct arg args[] = {
     // { battery_state,  "^c#f43f5e^%s^d^ ",           "BAT1" },
     { run_command, "%s " , "~/.local/bin/viet_date"},
     { run_command, "|   %s " , "~/.local/bin/get_volume"},
-    { run_command, "|   %s%% ", "cat /sys/class/power_supply/BAT0/capacity" },
     { datetime,       "| %s",            "%I:%M %p" },
 };
