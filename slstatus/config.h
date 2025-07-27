@@ -73,7 +73,9 @@ static const struct arg args[] = {
     // { keymap,		      "^c#ffffff^ %s^d^ ",		        NULL },
     // { battery_perc,   "^c#f43f5e^ %s%%^d^",         "BAT0" },
     // { battery_state,  "^c#f43f5e^%s^d^ ",           "BAT1" },
-    { run_command, "%s " , "~/.local/bin/viet_date"},
-    { run_command, "|   %s " , "~/.local/bin/get_volume"},
-    { datetime,       "| %s",            "%I:%M %p" },
+    { run_command, "%s " , "~/.local/bin/get_power"},
+    { run_command, " %s " , "~/.local/bin/get_wifi"},
+    { run_command, "   %s " , "~/.local/bin/get_volume"},
+    { run_command, " %s " , "~/.local/bin/viet_date"},
+    { datetime,       " %s ",            "%I:%M %p" },
 };

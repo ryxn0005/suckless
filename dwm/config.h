@@ -11,13 +11,13 @@ static const unsigned int gappov    = 0;        // vert outer gap between window
 static       int smartgaps          = 0;        // 1 means no outer gap when there is only one window
 static const int showbar            = 1;        // 0 means no bar
 static const int topbar             = 1;        // 0 means bottom bar
-static const char *fonts[]          = { "Jetbrains Mono NerdFont:size=12:style=Bold", "monospace:size=12" };
-static const char dmenufont[]       = "Jetbrains Mono NerdFont:size=12:style=Bold";
+static const char *fonts[]          = { "JetBrains Mono NerdFont:size=12:style=Bold", "monospace:size=12" };
+static const char dmenufont[]       = "JetBrains Mono NerdFont:size=12:style=Bold";
 #include "themes/mhtheme.h"
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_accnt, col_accnt  },
+	[SchemeNorm] = { col_white, col_black, col_black },
+	[SchemeSel]  = { col_black, col_white, col_white  },
 };
 
 /* tagging */
@@ -76,7 +76,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_accnt, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_white, "-sb", col_white, "-sf", col_black, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *upvol[] = {"/usr/bin/wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "10%+", NULL};
 static const char *downvol[] = {"/usr/bin/wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "10%-", NULL};

@@ -99,44 +99,42 @@ float alpha = 0.8;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-	"#0f1010",
-	"#586eae",
-	"#657ab5",
-	"#6376cf",
-	"#6b82ba",
-	"#6e89cf",
-	"#7891e2",
-	"#b9bed2",
+	"#16161d", // black (dark - background)
+	"#a32c2d", // red
+	"#4b7d08", // green
+	"#916814", // yellow
+	"#3c56aa", // blue
+	"#91328c", // magenta
+	"#237e6f", // cyan
+	"#92959d", // light gray
 
 	/* 8 bright colors */
-	"#818593",
-	"#586eae",
-	"#657ab5",
-	"#6376cf",
-	"#6b82ba",
-	"#6e89cf",
-	"#7891e2",
-	"#b9bed2",
+	"#575a61", // bright black
+	"#cf554d", // bright red
+	"#72a336", // bright green
+	"#ba8d3b", // bright yellow
+	"#667ad3", // bright blue
+	"#ba59b3", // bright magenta
+	"#4ea494", // bright cyan
+	"#d2d6de", // bright white
 
 	[255] = 0,
 
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
-	"#cdd6f4", /* default foreground colour */
-	"#000000", /* default background colour */
+	/* Custom colors for defaults */
+	"#b9bdc5", // 256 - foreground (same as col_gray3)
+	"#16161d", // 257 - background (same as col_gray1)
+	"#b9bdc5", // 258 - cursor color (same as foreground)
+	"#36383f", // 259 - reverse cursor (same as col_accnt)
 };
-
-
 
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 258;
-unsigned int defaultbg = 259;
-unsigned int defaultcs = 256;
-static unsigned int defaultrcs = 257;
+unsigned int defaultfg = 256;     // #b9bdc5
+unsigned int defaultbg = 257;     // #16161d
+unsigned int defaultcs = 258;     // #b9bdc5 (cursor = foreground)
+static unsigned int defaultrcs = 259; // #36383f (reverse cursor)
 
 /*
  * Default shape of cursor

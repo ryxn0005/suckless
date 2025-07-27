@@ -8,12 +8,22 @@ static int min_width = 500; /* minimum width when centered */
 static const char *fonts[] = {"Jetbrains Mono NerdFont:size=12:style=Bold"};
 static const char *prompt =
     NULL; /* -p  option; prompt to the left of input field */
+#include "themes/mhtheme.h"
+/* 
 static const char *colors[SchemeLast][2] = {
-    /*     fg         bg       */
     [SchemeNorm] = {"#bbbbbb", "#222222"},
     [SchemeSel] = {"#eeeeee", "#005577"},
     [SchemeOut] = {"#000000", "#00ffff"},
 };
+*/
+
+static const char *colors[SchemeLast][2] = {
+    /*     fg         bg       */
+	  [SchemeNorm] = { col_white, col_black },
+	  [SchemeSel]  = { col_black, col_white },
+    [SchemeOut]  = { col_black, col_black },
+};
+
 /* -l and -g options; controls number of lines and columns in grid if > 0 */
 static unsigned int lines = 8;
 static unsigned int columns = 1;
