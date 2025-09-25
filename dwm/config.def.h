@@ -82,6 +82,7 @@ static const char *upvol[] = {"/usr/bin/wpctl", "set-volume", "@DEFAULT_AUDIO_SI
 static const char *downvol[] = {"/usr/bin/wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "10%-", NULL};
 static const char *mutevol[] = {"/usr/bin/wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle", NULL};
 static const char *prtscrcmd[] = { "flameshot", "gui", NULL };
+static const char *browsercmd[] = { "librewolf", NULL };
 
 #include "movestack.c"
 static const Key keys[] = {
@@ -91,12 +92,13 @@ static const Key keys[] = {
 	{0, 							XF86XK_AudioMute, 				spawn, 			{.v = mutevol}},
 	{0, 							XF86XK_AudioRaiseVolume, 		spawn, 			{.v = upvol}},
 	{ MODKEY,                       XK_p,                  			spawn,          {.v = dmenucmd } },                                // open app launcher MOD+r
-	{ MODKEY|ShiftMask,             XK_Return,             			spawn,          {.v = termcmd } },                                 // spawn terminal MOD+return
+	{ MODKEY|ShiftMask,             XK_Return,             			spawn,          {.v = termcmd } },                                 // open terminal
+  { MODKEY|ShiftMask,             XK_b,                       spawn,          {.v = browsercmd} },                               // open browser
 	{ MODKEY,                       XK_b,                  			togglebar,      {0} },                                             // show hide bar MOD+b
 	{ MODKEY|SUPERKEY|ShiftMask,    XK_l,                  			spawn,          SHCMD("exec slock") },                             // lockscreen MOD+ALT+L
 	{ MODKEY,                       XK_j,                  			focusstack,     {.i = +1 } },                                      // focus window up stack MOD+J
 	{ MODKEY,                       XK_k,                  			focusstack,     {.i = -1 } },                                      // focus window down stack MOD+K
-	{ MODKEY|ShiftMask,             XK_j,                  			movestack,      {.i = +1 } },                                      // move window up stack MOD+J
+	{ MODKEY|ShiftMask,             XK_j,                   		movestack,      {.i = +1 } },                                      // move window up stack MOD+J
 	{ MODKEY|ShiftMask,             XK_k,                  			movestack,      {.i = -1 } },                                      // move window down stack MOD+K
 	{ MODKEY,                       XK_i,                  			incnmaster,     {.i = +1 } },                                      // increase windows in master stack MOD+i
 	{ MODKEY,                       XK_d,                  			incnmaster,     {.i = -1 } },                                      // decrease windows in master stack MOD+d
