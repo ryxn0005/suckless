@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+command -v wpctl >/dev/null 2>&1 || {
+  echo "wpctl not found"
+  exit 1
+}
+
+line="$(wpctl get-volume @DEFAULT_AUDIO_SINK@ 2>/dev/null)" || {
+  echo "N/A"
+  exit 1
+}
+
+vol="$(awk '/Volume:/ {print $2}' <<<"$line")"
+[[ -z "$vol" ]] && vol="$(grep -oE '\[[0-9.]+\]' <<<"$line" | head -n1 | tr -d '[]')"
+
+pct="$(awk -v v="$vol" 'BEGIN { printf "%.0f", (v*100) }')"
+
+# Check mute flag
+if grep -qi 'MUTED' <<<"$line"; then
+  echo "  ${pct}%"
+else
+  echo "  ${pct}%"
+fi
